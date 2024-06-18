@@ -222,7 +222,7 @@ change_singbox(){
 generate_port() {
     while :; do
         port=$((RANDOM % 10001 + 10000))
-        read -p "请输入协议监听端口(默认随机生成): " user_input
+        read -p "port reality: " user_input
         port=${user_input:-$port}
         ss -tuln | grep -q ":$port\b" || { echo "$port"; return $port; }
         echo "端口 $port 被占用，请输入其他端口"
