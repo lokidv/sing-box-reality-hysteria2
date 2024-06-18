@@ -232,7 +232,7 @@ generate_port() {
 modify_port() {
     local current_port="$1"
     while :; do
-        read -p "请输入需要修改的端口，默认随机生成 (当前端口为: $current_port): " modified_port
+        read -p "enter the port : $current_port): " modified_port
         modified_port=${modified_port:-$current_port}
         if [ "$modified_port" -eq "$current_port" ]; then
             break
@@ -1657,7 +1657,7 @@ echo ""
 vmess_uuid=$(/root/sbox/sing-box generate uuid)
 vmess_port=$(generate_port)
 info "生成的端口号为: $vmess_port"
-read -p "ws路径 (无需加斜杠,默认随机生成): " ws_path
+read -p "ws路径 (无需加斜杠,portws): " ws_path
 ws_path=${ws_path:-$(/root/sbox/sing-box generate rand --hex 6)}
 info "生成的path为: $ws_path"
 #get ip
